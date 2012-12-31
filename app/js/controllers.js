@@ -1,12 +1,34 @@
 'use strict';
 
-/* Controllers */
+function ChessCtrl($scope) {
 
-
-function MyCtrl1() {}
-MyCtrl1.$inject = [];
-
-
-function MyCtrl2() {
+    $scope.chess = new Chess();
+    $scope.history = []
+    $scope.chess = new Chess();
+    $scope.reset = function(){
+        if($scope.pgn){
+            $scope.status = "resetted";
+            $scope.chess.load_pgn($scope.pgn);
+            $scope.boardText = $scope.chess.ascii();
+        }
+        $scope.history = [];
+    }
+    $scope.load = function(){
+        $scope.pgn = $scope.newPGN
+        $scope.status = $scope.chess.load_pgn($scope.pgn);
+        $scope.boardText = $scope.chess.ascii();
+    }
+    $scope.undo = function(){
+        if($scope.chess.history()){
+            $scope.history.push($scope.chess.history()[$scope.chess.history().length-1])
+            $scope.chess.undo();
+            $scope.boardText = $scope.chess.ascii();
+        }
+    }
+    $scope.advance = function(){
+        if($scope.history){
+            $scope.chess.move($scope.history.pop())
+            $scope.boardText = $scope.chess.ascii();
+        }
+    }
 }
-MyCtrl2.$inject = [];
