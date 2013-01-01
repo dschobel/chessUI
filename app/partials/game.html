@@ -1,17 +1,17 @@
-<div id="board">
-    <pre style="width:300px;height:250px;">
-    {{boardText}}
-    </pre>
+<div class="container-flued" id="board">
+    <div class="span5">
+        <pre style="width:300px;height:250px;">{{boardText}}</pre>
+        <a class="btn btn-large" href="#"><i class="icon-fast-backward"></i></a>
+        <a class="btn btn-large" ng-click="undo()"><i class="icon-arrow-left"></i></a>
+        <!--<a class="btn btn-large" ng-click="reset()"><i class="icon-refresh"></i></a>-->
+        <a class="btn btn-large" ng-click="advance()"><i class="icon-arrow-right"></i></a>
+        <a class="btn btn-large" href="#"><i class="icon-fast-forward"></i></a>
+    </div>
+    <div class="span6">
+        <input type="text" placeholder="status" ng-model="status" readonly></input>
+        <form ng-submit="load()">
+            <textarea  style="width:500px;height:500px;" placeholder="load PGNs here" ng-model="newPGN"></textarea>
+            <button type="submit" class="btn btn-primary">Load</button>
+        </form>
+    </div>
 </div>
-<a class="btn btn-large" href="#"><i class="icon-fast-backward"></i></a>
-<a class="btn btn-large" ng-click="undo()"><i class="icon-arrow-left"></i></a>
-<a class="btn btn-large" ng-click="reset()"><i class="icon-refresh"></i></a>
-<a class="btn btn-large" ng-click="advance()"><i class="icon-arrow-right"></i></a>
-<a class="btn btn-large" href="#"><i class="icon-fast-forward"></i></a>
-<label>Status:</label><input type="text" ng-model="status"</input>
-<div>
-    <form ng-submit="load()">
-        <textarea  style="width:500px;height:500px;" placeholder="load PGNs here" ng-model="newPGN"></textarea>
-        <button type="submit" class="btn btn-primary">Load</button>
-    </form>
-<div>
