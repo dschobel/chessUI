@@ -1,11 +1,10 @@
 <div class="container-flued" id="board">
     <div class="span5">
         <pre style="width:300px;height:250px;">{{boardText}}</pre>
-        <a class="btn btn-large" href="#"><i class="icon-fast-backward"></i></a>
+        <a class="btn btn-large" ng-click="restart()"><i class="icon-fast-backward"></i></a>
         <a class="btn btn-large" ng-click="undo()"><i class="icon-arrow-left"></i></a>
-        <!--<a class="btn btn-large" ng-click="reset()"><i class="icon-refresh"></i></a>-->
         <a class="btn btn-large" ng-click="advance()"><i class="icon-arrow-right"></i></a>
-        <a class="btn btn-large" href="#"><i class="icon-fast-forward"></i></a>
+        <a class="btn btn-large" ng-click="end()"><i class="icon-fast-forward"></i></a>
     </div>
     <div class="span6">
         <input type="text" placeholder="status" ng-model="status" readonly></input>
